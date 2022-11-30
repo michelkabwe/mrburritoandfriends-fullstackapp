@@ -1,0 +1,87 @@
+import React from 'react'
+import { makeStyles } from '@mui/styles';
+import { Box } from '@mui/system';
+import { Typography } from '@mui/material';
+import aboutUs_img from '../Static/logo2.PNG';
+
+
+ export default function Slider(imageSrc, text, flipped) {
+    const classes = useStyles();
+
+    const renderContent = () => {
+
+      if(!flipped) {
+        return (
+        <>
+           
+          <img src={aboutUs_img} alt="About us" className={classes.sliderImage}/>
+          <Box className={classes.sliderContent}>
+            <Typography className={classes.sliderTitle}> 
+                <h1 className={classes.slogan}> We don’t fake it!
+                        We make it!
+                        Authentic Calimex made from scratch.</h1>
+            </Typography>
+          </Box>
+        </>
+        );
+      }else{  
+        return (
+        <>
+          <Box className={classes.sliderContent} sx={{ back: '#000000'}}>
+            <Typography className={classes.sliderTitle}> 
+                <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, 
+                  consectetur, adipisci velit...</p>
+            </Typography>
+          </Box>
+          <img src={imageSrc} alt="About us" className={classes.sliderImage}/>
+        </>
+        );
+      }
+
+    }
+
+
+  return (
+    <Box className={classes.slider}>{renderContent()}</Box>
+  )
+}
+
+ 
+
+
+const useStyles = makeStyles({
+
+    slider:{
+        display: 'flex', 
+        alignItem: 'center',
+        backgroundColor: 'black',
+        
+      }, 
+    sliderImage:{
+      width: '60%',
+    },
+
+    sliderContent:{
+      flex: '1',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItem: 'center',
+     // padding: '20px', 
+      textAlign: 'center',
+      background: 'black',
+      color: 'wheat',
+      
+    },
+
+    sliderTitle:{
+      textAlign: 'center'
+    },
+
+    slogan: {
+      color:'#F2D06F',
+      padding: '3rem'
+    }
+
+
+})
